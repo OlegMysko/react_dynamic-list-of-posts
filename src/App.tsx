@@ -23,7 +23,7 @@ export const App = () => {
   const [activeDrop, setActiveDrop] = useState<boolean>(false);
   const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
   const [isLoading, setLoading] = useState(false);
-  const [selectPost, setSelectPost] = useState<numbe | null>(null);
+  const [selectPost, setSelectPost] = useState<number | null>(null);
   const [comments, setComments] = useState<Comment[] | []>([]);
   const [writeComment, setWriteComment] = useState<boolean>(false);
   const handleError = (type: string) => {
@@ -55,7 +55,10 @@ export const App = () => {
       .catch(() => {
         handleError('Something went wrong!');
       })
-      .finally(() => setLoading(false), setErrorType(null));
+      .finally(() => {
+        setLoading(false);
+        setErrorType(null);
+      });
   };
 
   const handleSelect = id => {

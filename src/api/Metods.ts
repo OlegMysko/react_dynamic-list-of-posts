@@ -24,5 +24,5 @@ export const createComment = ({
 };
 
 export const delComment = (id: number) => {
-  return client.delete<number>(`/comments/${id}`);
+  return client.post<Comment>(`/comments`, { id, name, email, body });
 };

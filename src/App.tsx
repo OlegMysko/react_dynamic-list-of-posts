@@ -55,10 +55,7 @@ export const App = () => {
       .catch(() => {
         handleError('Something went wrong!');
       })
-      .finally(() => {
-        setLoading(false);
-        setErrorType(null);
-      });
+      .finally(() => setLoading(false), setErrorType(null));
   };
 
   const handleSelect = id => {

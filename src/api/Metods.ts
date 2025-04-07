@@ -20,9 +20,9 @@ export const createComment = ({
   email,
   body,
 }: Omit<Comment, 'id'>) => {
-  return client.post<Todo>(`/comments`, { postId, name, email, body });
+  return client.post<Comment>(`/comments`, { postId, name, email, body });
 };
 
 export const delComment = (id: number) => {
-  return client.post<Comment>(`/comments`, { id, name, email, body });
+  return client.delete<number>(`/comments/${id}`);
 };

@@ -1,13 +1,14 @@
 import { client } from '../utils/fetchClient';
 import { User } from '../types/User';
 import { Comment } from '../types/Comment';
+import { Post } from '../types/Post';
 
 export const getUser = () => {
   return client.get<User[]>(`/users`);
 };
 
 export const getUserPosts = id => {
-  return client.get<User[]>(`/posts?userId=${id}`);
+  return client.get<Post[]>(`/posts?userId=${id}`);
 };
 
 export const getCommentsPosts = id => {
@@ -24,5 +25,5 @@ export const createComment = ({
 };
 
 export const delComment = (id: number) => {
-  return client.delete<number>(`/comments/${id}`);
+  return client.delete<void>(`/comments/${id}`);
 };
